@@ -1,36 +1,35 @@
 //
-//  ASPopupDismissAnimator.m
-//  ASPopupControllerDemo
+//  LLPopupDismissAnimator.m
 //
-//  Created by wya on 16/11/3.
+//  Created by  on 16/11/3.
 //  Copyright © 2016年 code. All rights reserved.
 //
 
-#import "WYAPopupDismissAnimator.h"
-#import "WYAAlertController.h"
+#import "LLPopupDismissAnimator.h"
+#import "LLAlertController.h"
 
-@implementation WYAPopupDismissAnimator
+@implementation LLPopupDismissAnimator
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     switch (self.dismissStyle) {
-        case WYAPopupDismissStyleFadeOut:
+        case LLPopupDismissStyleFadeOut:
             return 0.15;
-        case WYAPopupDismissStyleShrink:
+        case LLPopupDismissStyleShrink:
             return 0.3;
-        case WYAPopupDismissStyleContractHorizontal:
+        case LLPopupDismissStyleContractHorizontal:
             return 0.2;
-        case WYAPopupDismissStyleContractVertical:
+        case LLPopupDismissStyleContractVertical:
             return 0.2;
-        case WYAPopupDismissStyleSlideDown:
+        case LLPopupDismissStyleSlideDown:
             return 0.25;
-        case WYAPopupDismissStyleSlideUp:
+        case LLPopupDismissStyleSlideUp:
             return 0.25;
-        case WYAPopupDismissStyleSlideLeft:
+        case LLPopupDismissStyleSlideLeft:
             return 0.2;
-        case WYAPopupDismissStyleSlideRight:
+        case LLPopupDismissStyleSlideRight:
             return 0.2;
-        case WYAPopupDismissStyleOutofFocus:
+        case LLPopupDismissStyleOutofFocus:
             return 0.5;
     }
 }
@@ -40,35 +39,35 @@
     [self animateWithStyle:self.dismissStyle context:transitionContext];
 }
 
-- (void)animateWithStyle:(WYAPopupDismissStyle)style
+- (void)animateWithStyle:(LLPopupDismissStyle)style
                  context:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     switch (self.dismissStyle) {
-        case WYAPopupDismissStyleFadeOut:
+        case LLPopupDismissStyleFadeOut:
             [self fadeOutAnimationWithContext:transitionContext];
             break;
-        case WYAPopupDismissStyleShrink:
+        case LLPopupDismissStyleShrink:
             [self shrinkAnimationWithContext:transitionContext];
             break;
-        case WYAPopupDismissStyleContractHorizontal:
+        case LLPopupDismissStyleContractHorizontal:
             [self contractHorizontalAnimationWithContext:transitionContext];
             break;
-        case WYAPopupDismissStyleContractVertical:
+        case LLPopupDismissStyleContractVertical:
             [self contractVerticalAnimationWithContext:transitionContext];
             break;
-        case WYAPopupDismissStyleSlideDown:
+        case LLPopupDismissStyleSlideDown:
             [self slideDownAnimationWithContext:transitionContext];
             break;
-        case WYAPopupDismissStyleSlideUp:
+        case LLPopupDismissStyleSlideUp:
             [self slideUpAnimationWithContext:transitionContext];
             break;
-        case WYAPopupDismissStyleSlideLeft:
+        case LLPopupDismissStyleSlideLeft:
             [self slideLeftAnimationWithContext:transitionContext];
             break;
-        case WYAPopupDismissStyleSlideRight:
+        case LLPopupDismissStyleSlideRight:
             [self slideRightAnimationWithContext:transitionContext];
             break;
-        case WYAPopupDismissStyleOutofFocus:
+        case LLPopupDismissStyleOutofFocus:
             [self OutofFoucsAnimationWithContext:transitionContext];
             break;
     }
@@ -87,7 +86,7 @@
 
 - (void)shrinkAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * fromVC =
+    LLAlertController * fromVC =
     [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     fromVC.backgroundButton.alpha = as_backgroundAlpha;
     fromVC.alertView.alpha        = 1;
@@ -110,7 +109,7 @@
 - (void)contractHorizontalAnimationWithContext:
 (id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * fromVC =
+    LLAlertController * fromVC =
     [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 
     NSTimeInterval duration = [self transitionDuration:transitionContext];
@@ -125,7 +124,7 @@
 - (void)contractVerticalAnimationWithContext:
 (id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * fromVC =
+    LLAlertController * fromVC =
     [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 
     NSTimeInterval duration = [self transitionDuration:transitionContext];
@@ -139,7 +138,7 @@
 
 - (void)slideDownAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * fromVC =
+    LLAlertController * fromVC =
     [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 
     NSTimeInterval duration = [self transitionDuration:transitionContext];
@@ -155,10 +154,10 @@
 
 - (void)slideUpAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * fromVC =
+    LLAlertController * fromVC =
     [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 
-    if (fromVC.alertStyle == WYAAlertStyleDefalut) {
+    if (fromVC.alertStyle == LLAlertStyleDefalut) {
         NSTimeInterval duration = [self transitionDuration:transitionContext];
         [UIView animateWithDuration:duration
         animations:^{
@@ -168,8 +167,8 @@
         }
         completion:^(BOOL finished) { [transitionContext completeTransition:YES]; }];
 
-    } else if (fromVC.alertStyle == WYAAlertStyleSheet ||
-               fromVC.alertStyle == WYAAlertStyleCustomSheet) {
+    } else if (fromVC.alertStyle == LLAlertStyleSheet ||
+               fromVC.alertStyle == LLAlertStyleCustomSheet) {
         NSTimeInterval duration = [self transitionDuration:transitionContext];
         [UIView animateWithDuration:duration
         animations:^{
@@ -184,7 +183,7 @@
 
 - (void)slideLeftAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * fromVC =
+    LLAlertController * fromVC =
     [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 
     NSTimeInterval duration = [self transitionDuration:transitionContext];
@@ -199,7 +198,7 @@
 
 - (void)slideRightAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * fromVC =
+    LLAlertController * fromVC =
     [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
 
     NSTimeInterval duration = [self transitionDuration:transitionContext];

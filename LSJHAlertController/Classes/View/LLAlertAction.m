@@ -1,10 +1,10 @@
-#import "WYAAlertAction.h"
+#import "LLAlertAction.h"
 
-@implementation WYAAlertAction
-+ (instancetype)wya_actionWithTitle:(NSString *)title
+@implementation LLAlertAction
++ (instancetype)ll_actionWithTitle:(NSString *)title
                             handler:(void (^)(void))handler
 {
-    WYAAlertAction * action = [[WYAAlertAction alloc] init];
+    LLAlertAction * action = [[LLAlertAction alloc] init];
     action.title            = title;
     action.handler          = handler;
     action.textColor        = [UIColor blackColor];
@@ -12,11 +12,11 @@
     return action;
 }
 
-+ (instancetype)wya_actionWithTitle:(NSString *)title
++ (instancetype)ll_actionWithTitle:(NSString *)title
                           textColor:(UIColor *)textColor
                             handler:(void (^)(void))handler
 {
-    WYAAlertAction * action = [[WYAAlertAction alloc] init];
+    LLAlertAction * action = [[LLAlertAction alloc] init];
     action.title            = title;
     action.handler          = handler;
     if (textColor) {
@@ -28,12 +28,12 @@
     return action;
 }
 
-+ (instancetype)wya_actionWithTitle:(NSString *)title
++ (instancetype)ll_actionWithTitle:(NSString *)title
                           textColor:(UIColor *)textColor
                            textFont:(UIFont *)textFont
                             handler:(void (^)(void))handler
 {
-    WYAAlertAction * action = [[WYAAlertAction alloc] init];
+    LLAlertAction * action = [[LLAlertAction alloc] init];
     action.title            = title;
     action.handler          = handler;
     if (textColor) {

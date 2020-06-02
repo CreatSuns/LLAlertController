@@ -1,38 +1,37 @@
 //
-//  ASPopupPresentAnimator.m
-//  ASPopupControllerDemo
+//  LLPopupPresentAnimator.m
 //
-//  Created by wya on 16/11/3.
+//  Created by  on 16/11/3.
 //  Copyright © 2016年 code. All rights reserved.
 //
 
-#import "WYAPopupPresentAnimator.h"
-#import "WYAAlertController.h"
+#import "LLPopupPresentAnimator.h"
+#import "LLAlertController.h"
 
-@implementation WYAPopupPresentAnimator
+@implementation LLPopupPresentAnimator
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     switch (self.presentStyle) {
-        case WYAPopupPresentStyleSystem:
+        case LLPopupPresentStyleSystem:
             return 0.3;
-        case WYAPopupPresentStyleFadeIn:
+        case LLPopupPresentStyleFadeIn:
             return 0.2;
-        case WYAPopupPresentStyleBounce:
+        case LLPopupPresentStyleBounce:
             return 0.3;
-        case WYAPopupPresentStyleExpandHorizontal:
+        case LLPopupPresentStyleExpandHorizontal:
             return 0.3;
-        case WYAPopupPresentStyleExpandVertical:
+        case LLPopupPresentStyleExpandVertical:
             return 0.3;
-        case WYAPopupPresentStyleSlideDown:
+        case LLPopupPresentStyleSlideDown:
             return 0.5;
-        case WYAPopupPresentStyleSlideUp:
+        case LLPopupPresentStyleSlideUp:
             return 0.3;
-        case WYAPopupPresentStyleSlideLeft:
+        case LLPopupPresentStyleSlideLeft:
             return 0.4;
-        case WYAPopupPresentStyleSlideRight:
+        case LLPopupPresentStyleSlideRight:
             return 0.4;
-        case WYAPopupPresentStyleFoucs:
+        case LLPopupPresentStyleFoucs:
             return 0.5;
     }
 }
@@ -42,38 +41,38 @@
     [self animateWithStyle:self.presentStyle context:transitionContext];
 }
 
-- (void)animateWithStyle:(WYAPopupPresentStyle)style
+- (void)animateWithStyle:(LLPopupPresentStyle)style
                  context:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     switch (style) {
-        case WYAPopupPresentStyleSystem:
+        case LLPopupPresentStyleSystem:
             [self systemAnimationWithContext:transitionContext];
             break;
-        case WYAPopupPresentStyleFadeIn:
+        case LLPopupPresentStyleFadeIn:
             [self fadeInAnimationWithContext:transitionContext];
             break;
-        case WYAPopupPresentStyleBounce:
+        case LLPopupPresentStyleBounce:
             [self bounceAnimationWithContext:transitionContext];
             break;
-        case WYAPopupPresentStyleExpandHorizontal:
+        case LLPopupPresentStyleExpandHorizontal:
             [self expandHorizontalAnimationWithContext:transitionContext];
             break;
-        case WYAPopupPresentStyleExpandVertical:
+        case LLPopupPresentStyleExpandVertical:
             [self expandVerticalAnimationWithContext:transitionContext];
             break;
-        case WYAPopupPresentStyleSlideDown:
+        case LLPopupPresentStyleSlideDown:
             [self slideDownAnimationWithContext:transitionContext];
             break;
-        case WYAPopupPresentStyleSlideUp:
+        case LLPopupPresentStyleSlideUp:
             [self slideUpAnimationWithContext:transitionContext];
             break;
-        case WYAPopupPresentStyleSlideLeft:
+        case LLPopupPresentStyleSlideLeft:
             [self slideLeftAnimationWithContext:transitionContext];
             break;
-        case WYAPopupPresentStyleSlideRight:
+        case LLPopupPresentStyleSlideRight:
             [self slideRightAnimationWithContext:transitionContext];
             break;
-        case WYAPopupPresentStyleFoucs:
+        case LLPopupPresentStyleFoucs:
             [self foucsAnimationWithContext:transitionContext];
             break;
     }
@@ -81,7 +80,7 @@
 
 - (void)systemAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * toVC =
+    LLAlertController * toVC =
     [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     toVC.backgroundButton.alpha = 0;
     toVC.alertView.alpha        = 0;
@@ -117,7 +116,7 @@
 
 - (void)bounceAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * toVC =
+    LLAlertController * toVC =
     [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     toVC.backgroundButton.alpha = 0;
     toVC.alertView.alpha        = 1;
@@ -143,7 +142,7 @@
 - (void)expandHorizontalAnimationWithContext:
 (id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * toVC =
+    LLAlertController * toVC =
     [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     toVC.backgroundButton.alpha = 0;
     toVC.alertView.alpha        = 0;
@@ -165,7 +164,7 @@
 - (void)expandVerticalAnimationWithContext:
 (id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * toVC =
+    LLAlertController * toVC =
     [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     toVC.backgroundButton.alpha = 0;
     toVC.alertView.alpha        = 0;
@@ -186,7 +185,7 @@
 
 - (void)slideDownAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * toVC =
+    LLAlertController * toVC =
     [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     toVC.backgroundButton.alpha = 0;
     toVC.alertView.center =
@@ -206,10 +205,10 @@
 
 - (void)slideUpAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * toVC =
+    LLAlertController * toVC =
     [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     toVC.backgroundButton.alpha = 0;
-    if (toVC.alertStyle == WYAAlertStyleDefalut) {
+    if (toVC.alertStyle == LLAlertStyleDefalut) {
         toVC.alertView.center =
         CGPointMake(toVC.view.center.x,
                     toVC.view.frame.size.height + toVC.alertView.frame.size.height / 2.0);
@@ -224,8 +223,8 @@
             toVC.alertView.center       = toVC.view.center;
         }
         completion:^(BOOL finished) { [transitionContext completeTransition:YES]; }];
-    } else if (toVC.alertStyle == WYAAlertStyleSheet ||
-               toVC.alertStyle == WYAAlertStyleCustomSheet) {
+    } else if (toVC.alertStyle == LLAlertStyleSheet ||
+               toVC.alertStyle == LLAlertStyleCustomSheet) {
         toVC.alertView.frame =
         CGRectMake((toVC.view.cmam_width - toVC.alertView.cmam_width) / 2, ScreenHeight,
                    toVC.alertView.cmam_width, toVC.alertView.cmam_height);
@@ -247,7 +246,7 @@
 
 - (void)slideLeftAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * toVC =
+    LLAlertController * toVC =
     [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     toVC.backgroundButton.alpha = 0;
     toVC.alertView.center       = CGPointMake(
@@ -267,7 +266,7 @@
 
 - (void)slideRightAnimationWithContext:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    WYAAlertController * toVC =
+    LLAlertController * toVC =
     [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     toVC.backgroundButton.alpha = 0;
     toVC.alertView.center       = CGPointMake(-toVC.alertView.frame.size.width / 2.0, toVC.view.center.y);

@@ -1,7 +1,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WYAAlertAction : NSObject
+@interface LLAlertAction : NSObject
 /// 标题
 @property (nonatomic, copy) NSString * title;
 /// 标题颜色, default is black
@@ -20,7 +20,7 @@
  @param handler 点击事件
  @return action
  */
-+ (instancetype)wya_actionWithTitle:(NSString *)title
++ (instancetype)ll_actionWithTitle:(NSString *)title
                             handler:(void (^)(void))handler;
 
 /**
@@ -31,7 +31,7 @@
  @param handler 点击事件
  @return action
  */
-+ (instancetype)wya_actionWithTitle:(NSString *)title
++ (instancetype)ll_actionWithTitle:(NSString *)title
                           textColor:(UIColor *)textColor
                             handler:(void (^)(void))handler;
 
@@ -44,7 +44,7 @@
  @param handler 点击事件
  @return action
  */
-+ (instancetype)wya_actionWithTitle:(NSString *)title
++ (instancetype)ll_actionWithTitle:(NSString *)title
                           textColor:(UIColor *)textColor
                            textFont:(UIFont *)textFont
                             handler:(void (^)(void))handler;

@@ -1,10 +1,10 @@
 
-#import "WYAAlertView.h"
-#import "WYAAlertAction.h"
+#import "LLAlertView.h"
+#import "LLAlertAction.h"
 
-@interface WYAAlertView () <UITextFieldDelegate>
+@interface LLAlertView () <UITextFieldDelegate>
 
-@property (nonatomic, strong) NSMutableArray<WYAAlertAction *> * actions; // 保存事件的数组
+@property (nonatomic, strong) NSMutableArray<LLAlertAction *> * actions; // 保存事件的数组
 @property (nonatomic, strong) NSMutableArray<UIButton *> * buttons;       // 保存按钮的数组
 @property (nonatomic, strong) UIView * containerView;                     // scrollView 外层容器视图
 @property (nonatomic, strong) UIView * buttonView;                        // 滚动视图
@@ -20,7 +20,7 @@
 @property (nonatomic, assign) CGFloat textFieldPadding; // textField与containerView之间的差值
 @end
 
-@implementation WYAAlertView
+@implementation LLAlertView
 #pragma mark - LifeCircle
 - (_Nonnull instancetype)initWithTitle:(NSString * _Nullable)title
                                message:(NSString * _Nullable)message
@@ -67,7 +67,7 @@
         if (self.titleLabel.text && self.titleLabel.text.length > 0) {
             make.top.mas_equalTo(self.containerView.mas_top).with.offset(15 * SizeAdapter);
 
-            CGFloat titleHeight = [UILabel getHeightByWidth:ScreenWidth - self.containerPadding -
+            CGFloat titleHeight = [UILabel ll_getHeightByWidth:ScreenWidth - self.containerPadding -
                                                             self.labelPadding
                                                       title:self.titleLabel.text
                                                        font:self.titleLabel.font];
@@ -88,7 +88,7 @@
             } else {
                 make.top.mas_equalTo(self.titleLabel.mas_bottom).with.offset(15 * SizeAdapter);
             }
-            CGFloat titleHeight = [UILabel getHeightByWidth:ScreenWidth - self.containerPadding -
+            CGFloat titleHeight = [UILabel ll_getHeightByWidth:ScreenWidth - self.containerPadding -
                                                             self.labelPadding
                                                       title:self.messageLabel.text
                                                        font:self.messageLabel.font];
@@ -123,7 +123,7 @@
     NSInteger newLine;
     CGFloat lineSpacing;
     CGFloat itemSpecing;
-    if (self.layoutStyle == WYAAlertLayoutStyleHorizontal) {
+    if (self.layoutStyle == LLAlertLayoutStyleHorizontal) {
         newLine     = self.buttons.count;
         lineSpacing = 0;
         itemSpecing = 0.5;
@@ -133,7 +133,7 @@
         itemSpecing = 0;
     }
 
-    [self.buttonView.subviews wya_mas_distributeSudokuViewsWithFixedItemWidth:0
+    [self.buttonView.subviews mas_distributeSudokuViewsWithFixedItemWidth:0
                                                               fixedItemHeight:50 * SizeAdapter
                                                              fixedLineSpacing:lineSpacing
                                                         fixedInteritemSpacing:itemSpecing
@@ -145,7 +145,7 @@
 }
 
 #pragma mark - Public Method
-- (void)wya_addAction:(WYAAlertAction * _Nonnull)action
+- (void)ll_addAction:(LLAlertAction * _Nonnull)action
 {
     for (UIView * view in self.buttonView.subviews) {
         [view removeFromSuperview];
@@ -161,7 +161,7 @@
     [actionButton setTitleColor:action.textColor forState:UIControlStateNormal];
     actionButton.titleLabel.font = action.textFont;
     [actionButton setBackgroundImage:self.whiteImage forState:UIControlStateNormal];
-    [actionButton setBackgroundImage:[UIImage wya_createImageWithColor:[UIColor colorWithRed:234.0 / 255.0 green:234.0 / 255.0 blue:234.0 / 255.0 alpha:1]] forState:UIControlStateHighlighted];
+    [actionButton setBackgroundImage:[UIImage ll_createImageWithColor:[UIColor colorWithRed:234.0 / 255.0 green:234.0 / 255.0 blue:234.0 / 255.0 alpha:1]] forState:UIControlStateHighlighted];
 
     [actionButton addTarget:self
                      action:@selector(actionButtonDidClicked:)
@@ -176,7 +176,7 @@
     [self layoutIfNeeded];
 }
 
-- (void)wya_addTextField:(UITextField *)textField
+- (void)ll_addTextField:(UITextField *)textField
 {
     [self.textFieldView addSubview:textField];
     [textField mas_makeConstraints:^(MASConstraintMaker * make) {
@@ -201,7 +201,7 @@
 }
 
 #pragma mark - Setter
-- (void)setLayoutStyle:(WYAAlertLayoutStyle)layoutStyle
+- (void)setLayoutStyle:(LLAlertLayoutStyle)layoutStyle
 {
     _layoutStyle = layoutStyle;
     [self layoutIfNeeded];
@@ -293,7 +293,7 @@
     return _buttons;
 }
 
-- (NSMutableArray<WYAAlertAction *> *)actions
+- (NSMutableArray<LLAlertAction *> *)actions
 {
     if (!_actions) {
         _actions = [NSMutableArray array];
@@ -304,7 +304,7 @@
 - (UIImage *)whiteImage
 {
     if (!_whiteImage) {
-        _whiteImage = [UIImage loadBundleImage:@"white" ClassName:NSStringFromClass([self class])];
+        _whiteImage = [UIImage ll_createImageWithColor:[UIColor whiteColor]];
     }
     return _whiteImage;
 }
@@ -312,7 +312,7 @@
 - (UIImage *)grayImage
 {
     if (!_grayImage) {
-        _grayImage = [UIImage loadBundleImage:@"gray" ClassName:NSStringFromClass([self class])];
+        _grayImage = [UIImage ll_createImageWithColor:[UIColor grayColor]];
     }
     return _grayImage;
 }

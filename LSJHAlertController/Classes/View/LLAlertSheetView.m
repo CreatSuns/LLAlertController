@@ -1,14 +1,13 @@
 //
-//  WYAAlertSheetView.m
-//  WYAKit
+//  LLAlertSheetView.m
 //
 //  Created by 李世航 on 2018/11/14.
 //
 
-#import "WYAAlertSheetView.h"
-#import "WYAAlertAction.h"
+#import "LLAlertSheetView.h"
+#import "LLAlertAction.h"
 
-@interface WYAAlertSheetView ()
+@interface LLAlertSheetView ()
 @property (nonatomic, strong) UIView * containerView;
 @property (nonatomic, strong) UIButton * cancelButton;
 @property (nonatomic, strong) UIView * titleView;
@@ -16,13 +15,13 @@
 @property (nonatomic, strong) UILabel * titleLabel;
 @property (nonatomic, strong) UILabel * messageLabel;
 @property (nonatomic, strong) NSMutableArray * buttons;
-@property (nonatomic, strong) NSMutableArray<WYAAlertAction *> * actions;
+@property (nonatomic, strong) NSMutableArray<LLAlertAction *> * actions;
 
 @property (nonatomic, assign) CGFloat labelPadding;
 
 @end
 
-@implementation WYAAlertSheetView
+@implementation LLAlertSheetView
 
 - (_Nonnull instancetype)initWithTitle:(NSString *)title message:(NSString *)message
 {
@@ -64,7 +63,7 @@
         make.height.mas_equalTo(self.buttons.count * 50 * SizeAdapter).priorityHigh();
     }];
 
-    [self.buttonView.subviews wya_mas_distributeSudokuViewsWithFixedItemWidth:0
+    [self.buttonView.subviews mas_distributeSudokuViewsWithFixedItemWidth:0
                                                               fixedItemHeight:0
                                                              fixedLineSpacing:0.5
                                                         fixedInteritemSpacing:0
@@ -84,7 +83,7 @@
         make.right.mas_equalTo(self.titleView.mas_right).with.offset(-self.labelPadding);
 
         if (self.titleLabel.text && self.titleLabel.text.length > 0) {
-            CGFloat height = [UILabel getHeightByWidth:ScreenWidth - 2 * self.labelPadding title:self.titleLabel.text font:self.titleLabel.font];
+            CGFloat height = [UILabel ll_getHeightByWidth:ScreenWidth - 2 * self.labelPadding title:self.titleLabel.text font:self.titleLabel.font];
             make.height.mas_equalTo(height);
             make.top.mas_equalTo(self.titleView.mas_top).with.offset(5 * SizeAdapter);
         } else {
@@ -100,7 +99,7 @@
 
         make.bottom.mas_equalTo(self.titleView.mas_bottom);
         if (self.messageLabel.text && self.messageLabel.text.length > 0) {
-            CGFloat height = [UILabel getHeightByWidth:ScreenWidth - 2 * self.labelPadding title:self.messageLabel.text font:self.messageLabel.font];
+            CGFloat height = [UILabel ll_getHeightByWidth:ScreenWidth - 2 * self.labelPadding title:self.messageLabel.text font:self.messageLabel.font];
             make.height.mas_equalTo(height);
             make.top.mas_equalTo(self.titleLabel.mas_bottom);
         } else {
@@ -111,7 +110,7 @@
 }
 
 #pragma mark ======= Public Method
-- (void)wya_addAction:(WYAAlertAction * _Nonnull)action
+- (void)ll_addAction:(LLAlertAction * _Nonnull)action
 {
     for (UIView * view in self.buttonView.subviews) {
         [view removeFromSuperview];
@@ -144,7 +143,7 @@
     [self layoutIfNeeded];
 }
 
-- (void)wya_addCornerRadiusWithNumber:(CGFloat)number
+- (void)ll_addCornerRadiusWithNumber:(CGFloat)number
 {
     [self layoutIfNeeded];
     [self.containerView addRoundedCorners:UIRectCornerTopLeft | UIRectCornerTopRight withRadii:CGSizeMake(number, number) viewRect:self.containerView.bounds];
@@ -185,7 +184,7 @@
     if (!_containerView) {
         _containerView = ({
             UIView * object        = [[UIView alloc] init];
-            object.backgroundColor = [[UIColor wya_hex:@"#F5F5F7"] colorWithAlphaComponent:1];
+            object.backgroundColor = [[UIColor ll_hex:@"#F5F5F7"] colorWithAlphaComponent:1];
             object;
         });
     }
@@ -198,7 +197,7 @@
         _cancelButton = ({
             UIButton * object = [[UIButton alloc] init];
             [object setTitle:@"取消" forState:UIControlStateNormal];
-            [object setTitleColor:[UIColor wya_hex:@"#4787F2"] forState:UIControlStateNormal];
+            [object setTitleColor:[UIColor ll_hex:@"#4787F2"] forState:UIControlStateNormal];
             object.titleLabel.font = FONT(16);
             [object setBackgroundColor:[UIColor whiteColor]];
             [object addTarget:self action:@selector(cancelClick) forControlEvents:UIControlEventTouchUpInside];
@@ -279,7 +278,7 @@
     return _buttons;
 }
 
-- (NSMutableArray<WYAAlertAction *> *)actions
+- (NSMutableArray<LLAlertAction *> *)actions
 {
     if (!_actions) {
         _actions = [NSMutableArray arrayWithCapacity:0];

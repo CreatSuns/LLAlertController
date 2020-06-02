@@ -1,22 +1,15 @@
-//
-//  WYAAlertSheetView.h
-//  WYAKit
-//
-//  Created by 李世航 on 2018/11/14.
-//
 
+#import "LLAlertStyle.h"
 #import <UIKit/UIKit.h>
+@class LLAlertAction;
 
-NS_ASSUME_NONNULL_BEGIN
-
-@class WYAAlertAction;
-
-@interface WYAAlertSheetView : UIView
-
+@interface LLAlertView : UIView
+@property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) CGFloat height;
-
-/** 保存当前的视图控制器，用来dismiss */
+/// 保存当前的视图控制器，用来dismiss
 @property (nonatomic, weak, nullable) UIViewController * controller;
+/// 按钮约束方向
+@property (nonatomic, assign) LLAlertLayoutStyle layoutStyle;
 
 /**
  初始化 AlertView
@@ -33,14 +26,13 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param action action
  */
-- (void)wya_addAction:(WYAAlertAction * _Nonnull)action;
+- (void)ll_addAction:(LLAlertAction * _Nonnull)action;
 
 /**
- 给sheetView的上左和上右切圆角
+ 添加输入框
 
- @param number 数值
+ @param textField 输入框
  */
-- (void)wya_addCornerRadiusWithNumber:(CGFloat)number;
-@end
+- (void)ll_addTextField:(UITextField *)textField;
 
-NS_ASSUME_NONNULL_END
+@end
