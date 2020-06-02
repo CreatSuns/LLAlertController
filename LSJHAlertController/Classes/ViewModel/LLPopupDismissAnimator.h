@@ -5,7 +5,6 @@
 //  Copyright © 2016年 code. All rights reserved.
 //
 
-#import "LLAlertStyle.h"
 #import <UIKit/UIKit.h>
 
 @interface LLPopupDismissAnimator : NSObject <UIViewControllerAnimatedTransitioning>

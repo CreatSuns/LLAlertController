@@ -1,3 +1,13 @@
+//
+//  LLAlertStyle.h
+//  LSJHAlertController
+//
+//  Created by 李世航 on 2020/6/2.
+//
+
+#ifndef LLAlertStyle_h
+#define LLAlertStyle_h
+
 /** present style */
 typedef NS_ENUM(NSInteger, LLPopupPresentStyle) {
     //alert
@@ -48,3 +58,6 @@ typedef NS_ENUM(NSInteger, LLAlertLayoutStyle) {
     LLAlertLayoutStyleHorizontal,
     LLAlertLayoutStyleVertical,
 };
+
+
+#endif /* LLAlertStyle_h */

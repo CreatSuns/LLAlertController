@@ -2,22 +2,20 @@
 #import "LLAlertAction.h"
 
 #import <UIKit/UIKit.h>
-
+#import "LLAlertStyle.h"
 // 灰色背景透明度
 static const CGFloat as_backgroundAlpha = 0.4;
 
-@class LLPopupView;
-
-@interface LLAlertController : UIViewController <UIAppearanceContainer>
+@interface LLAlertController : UIViewController
 
 /// alert 视图（外部不要调用）
 @property (nonatomic, strong) UIView * _Nonnull alertView;
 /// 外部可以设置背景颜色，透明程度，和是否可以相应事件（默认可以响应，如果不需要响应请关闭button的enabled属性）
 @property (nonatomic, strong) UIButton * _Nonnull backgroundButton;
 /// present 转场风格
-@property (nonatomic, assign) LLPopupPresentStyle presentStyle UI_APPEARANCE_SELECTOR;
+@property (nonatomic, assign) LLPopupPresentStyle presentStyle;
 /// dismiss 转场风格
-@property (nonatomic, assign) LLPopupDismissStyle dismissStyle UI_APPEARANCE_SELECTOR;
+@property (nonatomic, assign) LLPopupDismissStyle dismissStyle;
 /// 弹出视图类型
 @property (nonatomic, assign) LLAlertStyle alertStyle;
 
