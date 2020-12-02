@@ -158,6 +158,9 @@
 #pragma mark - Private Method
 - (void)dismissBackgroundView:(UIButton *)button
 {
+    if (self.disMissBlock) {
+        self.disMissBlock();
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

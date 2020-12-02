@@ -19,6 +19,8 @@ static const CGFloat as_backgroundAlpha = 0.4;
 /// 弹出视图类型
 @property (nonatomic, assign) LLAlertStyle alertStyle;
 
+@property (nonatomic, copy) void(^disMissBlock)(void);
+
 /**
  默认转场初始化方法
 

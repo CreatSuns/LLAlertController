@@ -64,7 +64,7 @@
 		82B4DFCFD9725A2FF0349A6F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C16B55B1CA434E5B2AE6E2A3 /* Pods_LSJHAlertController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LSJHAlertController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4886C10EE5E306EA720B63A /* LSJHAlertController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LSJHAlertController.podspec; path = ../LSJHAlertController.podspec; sourceTree = "<group>"; };
+		E4886C10EE5E306EA720B63A /* LSJHAlertController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LSJHAlertController.podspec; path = ../LSJHAlertController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F86F99544B75041DEB3CD2D3 /* Pods-LSJHAlertController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSJHAlertController_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LSJHAlertController_Tests/Pods-LSJHAlertController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA31EBFBD098484E11DD3A20 /* Pods-LSJHAlertController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSJHAlertController_Example.debug.xcconfig"; path = "Target Support Files/Pods-LSJHAlertController_Example/Pods-LSJHAlertController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -249,7 +249,7 @@
 				ORGANIZATIONNAME = "1228506851@qq.com";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = J5265ZP7QT;
+						DevelopmentTeam = 8GW8UY75XW;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -526,7 +526,7 @@
 			baseConfigurationReference = FA31EBFBD098484E11DD3A20 /* Pods-LSJHAlertController_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J5265ZP7QT;
+				DEVELOPMENT_TEAM = 8GW8UY75XW;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LSJHAlertController/LSJHAlertController-Prefix.pch";
 				INFOPLIST_FILE = "LSJHAlertController/LSJHAlertController-Info.plist";
@@ -543,7 +543,7 @@
 			baseConfigurationReference = 76B88DBEFE3E94DA2B963021 /* Pods-LSJHAlertController_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J5265ZP7QT;
+				DEVELOPMENT_TEAM = 8GW8UY75XW;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LSJHAlertController/LSJHAlertController-Prefix.pch";
 				INFOPLIST_FILE = "LSJHAlertController/LSJHAlertController-Info.plist";
